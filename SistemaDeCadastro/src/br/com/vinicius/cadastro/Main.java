@@ -16,6 +16,7 @@ public class Main {
         Scanner scan = new Scanner( System.in );
         
         Usuario u = null;
+        UsuarioRepository rep = new UsuarioRepository();
         int uCounter = 0;
         int idade;
         String nome;
@@ -39,7 +40,7 @@ public class Main {
             
             switch (c) {
                 case 'C':
-                    uCounter += 1;
+                
                     System.out.print("Nome: ");
                     nome = scan.nextLine();
                     System.out.print("Sobrenome: ");
@@ -50,16 +51,19 @@ public class Main {
                     sexo = scan.nextLine();
                     
                     u = new Usuario(nome, sobrenome, idade, sexo, uCounter);
+                    rep.addUsuario(u, uCounter);
+                    uCounter++;
                     
                     break; 
                     
                 case 'X':
                     exit = true;
+                    System.out.println("Saindo!");
                     break;
                     
                 case 'L':
                     if(uCounter >= 1){
-                    System.out.println(u);
+                    rep.listUsuarios();
                     }else{
                         System.out.print("Nenhum usuario registrado no momento");
                     }
