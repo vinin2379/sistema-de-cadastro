@@ -18,7 +18,6 @@ public class Main {
         Usuario u = null;
         UsuarioRepository rep = new UsuarioRepository();
         int idade;
-        int n;
         String nome;
         String sobrenome;
         String sexo;
@@ -30,7 +29,8 @@ public class Main {
                             \n\nMenu do Sistema:
                                 [C] Cadastrar novo Usuario.
                                 [E] Excluir Usuario.
-                                [L] Listar Usuarios.
+                                [L] Listar Nomes Usuarios.
+                                [T] Todos Usuarios.
                                 [X] Sair.
                               """);
             
@@ -54,27 +54,25 @@ public class Main {
                     rep.addUsuario( u );
               
                     
-                    break; 
+                    break;
                     
+                case 'E':   
+                    rep.removeUsuario();
+                    break;
+                    
+                case 'L':
+                    rep.listUsuarios();
+                    break;
+                    
+                case 'T':
+                    rep.listAllUsuarios();
+                    break;
+                       
                 case 'X':
                     exit = true;
                     System.out.println( "Saindo!" );
                     break;
                     
-                case 'E':
-                    System.out.print("Digite o numero do Usuario a ser removido: ");
-                    n = Integer.parseInt( scan.nextLine() );
-                    rep.removeUsuario(n-1);
-                    break;
-                    
-                case 'L':
-                    if( rep.getuCounter() >= 1 ){
-                    rep.listUsuarios();
-                    }else{
-                        System.out.print( "Nenhum usuario registrado no momento" );
-                    }
-                    break;
-                
                 default:
                     break;
             }
