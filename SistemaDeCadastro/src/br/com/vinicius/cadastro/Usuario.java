@@ -4,16 +4,20 @@
  */
 package br.com.vinicius.cadastro;
 
+/**
+ * 
+ * @author Vinicius
+ */
+
 public class Usuario {
     
     private String nome;
     private String sobrenome;
     private int idade;
-    private int uNumber;
     private String sexo;
     
-    public Usuario( String nome, String sobrenome, int idade, String sexo, int uNumber){
-        this.uNumber = uNumber;
+    public Usuario( String nome, String sobrenome, int idade, String sexo){
+        
         this.nome = nome;
         this.sobrenome = sobrenome;
         this.idade = idade;
@@ -24,12 +28,12 @@ public class Usuario {
     public String toString(){
         return String.format(
                 """
-                Usuario %d:
+                Usuario:
                      Nome: %s
                      Sobrenome: %s
                      Idade: %d
                      Sexo: %s
-                """,uNumber+1, nome, sobrenome, idade, sexo );
+                """, nome, sobrenome, idade, sexo );
     }
 
     public String getNome() {
@@ -54,14 +58,6 @@ public class Usuario {
 
     public void setIdade(int idade) {
         this.idade = idade;
-    }
-
-    public int getuNumber() {
-        return uNumber;
-    }
-
-    public void setuNumber(int uNumber) {
-        this.uNumber = uNumber;
     }
 
     public String getSexo() {

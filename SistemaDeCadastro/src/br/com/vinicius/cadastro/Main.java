@@ -7,7 +7,7 @@ package br.com.vinicius.cadastro;
 import java.util.Scanner;
 
 /**
- *
+ * 
  * @author Vinicius
  */
 public class Main {
@@ -17,8 +17,8 @@ public class Main {
         
         Usuario u = null;
         UsuarioRepository rep = new UsuarioRepository();
-        int uCounter = 0;
         int idade;
+        int n;
         String nome;
         String sobrenome;
         String sexo;
@@ -34,7 +34,7 @@ public class Main {
                                 [X] Sair.
                               """);
             
-            System.out.print("Selecione a opcao desejada: ");
+            System.out.print( "Selecione a opcao desejada: " );
             
             c = scan.nextLine().charAt(0);
             
@@ -50,22 +50,28 @@ public class Main {
                     System.out.print("Sexo: ");
                     sexo = scan.nextLine();
                     
-                    u = new Usuario(nome, sobrenome, idade, sexo, uCounter);
-                    rep.addUsuario(u, uCounter);
-                    uCounter++;
+                    u = new Usuario( nome, sobrenome, idade, sexo );
+                    rep.addUsuario( u );
+              
                     
                     break; 
                     
                 case 'X':
                     exit = true;
-                    System.out.println("Saindo!");
+                    System.out.println( "Saindo!" );
+                    break;
+                    
+                case 'E':
+                    System.out.print("Digite o numero do Usuario a ser removido: ");
+                    n = Integer.parseInt( scan.nextLine() );
+                    rep.removeUsuario(n-1);
                     break;
                     
                 case 'L':
-                    if(uCounter >= 1){
+                    if( rep.getuCounter() >= 1 ){
                     rep.listUsuarios();
                     }else{
-                        System.out.print("Nenhum usuario registrado no momento");
+                        System.out.print( "Nenhum usuario registrado no momento" );
                     }
                     break;
                 
