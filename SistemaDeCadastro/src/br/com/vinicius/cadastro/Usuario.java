@@ -19,7 +19,6 @@ public class Usuario {
     private String sexo;
     private int numUser;
     Scanner scan = new Scanner( System.in );
-    Usuario u;
     
     public Usuario( String nome, String sobrenome, int idade, String sexo){
         
@@ -28,20 +27,7 @@ public class Usuario {
         this.idade = idade;
         this.sexo = sexo;
     }
-    
-    public Usuario createUsuario(){
-        System.out.print("Nome: ");
-        nome = scan.nextLine();
-        System.out.print("Sobrenome: ");
-        sobrenome = scan.nextLine();
-        System.out.print("Idade: ");
-        idade = Integer.parseInt( scan.nextLine() );
-        System.out.print("Sexo: ");
-        sexo = scan.nextLine();
 
-        u = new Usuario( nome, sobrenome, idade, sexo );
-        return u;
-}
     
     @Override
     public String toString(){
@@ -95,13 +81,7 @@ public class Usuario {
         this.numUser = numUser;
     }
 
-    public Usuario getUser() {
-        return u;
-    }
 
-    public void setUser(Usuario u) {
-        this.u = u;
-    }
     
     
     
