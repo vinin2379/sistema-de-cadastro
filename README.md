@@ -73,6 +73,7 @@ E	Excluir usuário pelo índice
 L	Listar apenas nomes
 T	Listar todos os dados dos usuários
 X	Salvar e sair
+
 ✔️ Status
 
 Concluído e funcional.
