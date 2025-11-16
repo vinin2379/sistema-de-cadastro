@@ -17,12 +17,15 @@ public class Main {
         
         Usuario u = null;
         UsuarioRepository rep = new UsuarioRepository();
+        FileService f = new FileService();
         int idade;
         String nome;
         String sobrenome;
         String sexo;
         boolean exit = false;
         char c;
+        
+        f.loadUuarios(rep);
         
         do{
             System.out.print( """
@@ -36,7 +39,8 @@ public class Main {
             
             System.out.print( "Selecione a opcao desejada: " );
             
-            c = scan.nextLine().charAt(0);
+            c = Character.toUpperCase( scan.nextLine().charAt( 0 ) ) ;
+          
             
             switch (c) {
                 case 'C':
@@ -71,9 +75,11 @@ public class Main {
                 case 'X':
                     exit = true;
                     System.out.println( "Saindo!" );
+                    f.saveUsuario( rep.getUsers() );
                     break;
                     
                 default:
+                    System.out.print("\n ERRO! Caractere invalido. Tente novamente.");
                     break;
             }
                             

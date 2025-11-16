@@ -56,7 +56,7 @@ public class UsuarioRepository {
             System.out.print("\nDigite o numero do Usuario a ser removido: ");
             int n = Integer.parseInt( scan.nextLine() );
             
-            System.out.print("\nUsuario (" + users.get(n-1).getNome()+ ") removido com sucesso!!s");
+            System.out.print("\nUsuario (" + users.get(n-1).getNome()+ ") removido com sucesso!!");
 
             users.remove( n-1 );
             uCounter--;
@@ -74,6 +74,14 @@ public class UsuarioRepository {
 
     public int getuCounter() {
         return uCounter;
+    }
+
+    public List<Usuario> getUsers() {
+        return users;
+    }
+
+    public void setUsers(List<Usuario> users) {
+        this.users = users;
     }
     
 }
